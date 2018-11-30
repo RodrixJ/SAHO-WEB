@@ -4,8 +4,10 @@
 }
 
 body{
-    background: #000;
+    background-image: url(imagenes/hotel1.jpg);
+    background-repeat:no-repeat; 
 
+    
 
 }
 
