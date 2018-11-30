@@ -18,7 +18,7 @@ else
 
 session_start();
 session_destroy();
-print "<script>window.location='../login.php';</script>"
+header("location:login.php")
 
 
 ?>

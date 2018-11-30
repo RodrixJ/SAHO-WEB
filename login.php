@@ -21,7 +21,7 @@
 			<img src="imagenes/hotel.png" alt="">
 		</div>
 
-	<form action="iniciosesion.php" method="post"  >
+	<form role="form" action="iniciosesion.php" method="post"  >
 
 	  <div class="form-group">
 	  	<!--<?php 
@@ -32,13 +32,13 @@
 		//	}
 		?>-->
 	  	 
-	    <label for="usu">Usuario</label>
-	    <input type="text" class="form-control" id="usu" placeholder="Nombre de Usuario" name="usuario">
+	    <label for="username">Usuario</label>
+	    <input type="text" class="form-control" id="username" placeholder="Nombre de Usuario" name="username">
 	  </div>
 
 	  <div class="form-group">
-	    <label for="pass">Contraseña</label>
-	    <input type="password" class="form-control" id="pass" placeholder="PassWord" name="contra">
+	    <label for="password">Contraseña</label>
+	    <input type="password" class="form-control" id="password" placeholder="PassWord" name="password">
 	  </div>
 
      <button type="submit" class="btn btn-primary">Entrar</button>

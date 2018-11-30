@@ -1,47 +1,26 @@
-<?PHP
-include("conexion.php");
-
-/*$usua=$_POST['nombre_usuario'];
-$pass=$_POST['contrasena'];
-$con=conectar();
-
-
-$consu="SELECT * FROM administrador WHERE nombre_usuario='$usua' AND contrasena ='$pass'";
-
-$resultado=mysqli_query($con, $consu);
-$filas= mysqli_num_rows($resultado);
-if($filas>0)
-{
-	 session_start();
-	 $_SESSION['nombre_usuario']=$usua;
-	 header("Location:index.php");
-}
-else
-{
-	session_start(); 
-	$_SESSION['alerta']="Verifique usuario";
-	header("Location:index.php");
-
-}
-mysqli_free_result($resultado);
-mysqli_close($con);
-*/
-
-
+<?php
+echo "gñkaslksaas{kdñlaskdñla";
 if(!empty($_POST)){
-	if(isset($_POST["usuario"]) &&isset($_POST["contra"])){
-		if($_POST["usuario"]!=""&&$_POST["contra"]!=""){
-			include "conexion.php";
+	if(isset($_POST["username"]) &&isset($_POST["password"])){
+		if($_POST["username"]!=""&&$_POST["password"]!=""){
+			include "php/conexion.php";
 			
-			$sql1= "select * from administrador where (nombre_usuario=\"$_POST[usuario]\") and contrasena=\"$_POST[contra]\" ";
+			$user_id=null;
+			$sql1= "select * from administrador where nombre_usuario=\"$_POST[username]\" and contrasena=\"$_POST[password]\" ";
 			$query = $con->query($sql1);
-			
+			while ($r=$query->fetch_array()) {
+				$user_id=$r["nombre_usuario"];
+				break;
+			}
+			if($user_id==null){
+				print "<script>alert(\"Acceso invalido.\");window.location='iniciosesion.php';</script>";
+			}else{
 				session_start();
-				$_SESSION["nombre_usuario"]=$sql1;
-				header("location:index.php");
-				
+				$_SESSION["user_id"]=$user_id;
+                print "<script>window.location='index.php';</script>";
+				//print "<script>window.location='../home.php';</script>";			
+			}
 		}
 	}
 }
 ?>
-
